@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BestAppTest</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filter_news">Filter news</string>
+    <string name="test_description">NASA\'s final major test for its mega Moon rocket and Orion spacecraft was called off due to a tech issue on Monday, the agency said on Tuesday.</string>
+    <string name="test_title">NASA\'s major test for Artemis I mission called off due to tech issue - CGTN</string>
+    <string name="test_publishAt">2022-04-06T02:06:38Z</string>
+</resources>
