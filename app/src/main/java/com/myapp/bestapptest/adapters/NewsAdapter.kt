@@ -9,7 +9,9 @@ import com.bumptech.glide.Glide
 import com.myapp.bestapptest.databinding.NewsItemBinding
 import com.myapp.bestapptest.domain.model.Article
 
-class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
+class NewsAdapter(
+    val onClick: (Int) -> Unit
+): RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
 
     inner class NewsViewHolder(val binding: NewsItemBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -40,6 +42,10 @@ class NewsAdapter: RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
             Glide.with(this.root)
                 .load(article.urlToImage)
                 .into(image)
+
+            this.root.setOnClickListener {
+                onClick(article.id)
+            }
         }
     }
 

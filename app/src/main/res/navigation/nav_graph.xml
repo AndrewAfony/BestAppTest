@@ -11,7 +11,7 @@
         android:label="fragment_news"
         tools:layout="@layout/fragment_news" >
         <action
-            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            android:id="@+id/navigateToDetail"
             app:destination="@id/newsDetailFragment" />
     </fragment>
     <fragment

@@ -20,6 +20,8 @@ class NewsViewModel @Inject constructor(
     var news = MutableLiveData<List<Article>>()
     private set
 
+    var showSplash = true
+
     fun getNews() {
         viewModelScope.launch {
             repository.getNews()
@@ -29,16 +31,23 @@ class NewsViewModel @Inject constructor(
                             result.data?.let {
                                 news.postValue(it)
                             }
+                            showSplash = false
                         }
                         is Resource.Error -> {
-
+                            showSplash = false
                         }
                         is Resource.Loading -> {
-
+                            showSplash = true
                         }
                     }
 
                 }.launchIn(this)
+        }
+    }
+
+    fun getNewsById(id: Int) {
+        viewModelScope.launch {
+            repository.getNewsById(id)
         }
     }
 

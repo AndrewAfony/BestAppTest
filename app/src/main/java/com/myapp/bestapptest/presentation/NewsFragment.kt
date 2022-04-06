@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +45,10 @@ class NewsFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAdapter()
+        newsAdapter = NewsAdapter {
+            val action = NewsFragmentDirections.navigateToDetail(it)
+            view?.findNavController()?.navigate(action)
+        }
         val divider = DividerItemDecoration(activity, RecyclerView.VERTICAL)
         binding.rvNews.apply {
             adapter = newsAdapter
