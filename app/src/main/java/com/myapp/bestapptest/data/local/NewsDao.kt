@@ -10,11 +10,16 @@ interface NewsDao {
     @Query("SELECT * FROM Article")
     fun getAllNews(): Flow<List<Article>>
 
+    @Query("SELECT * FROM Article " +
+            "WHERE title LIKE '%' || :query || '%' OR content LIKE '%' || :query || '%' OR " +
+            "description LIKE '%' || :query || '%'")
+    fun getSearchedNews(query: String): Flow<List<Article>>
+
     @Query("SELECT * FROM Article WHERE id=:id")
     suspend fun getNewsById(id: Int): Article
 
-    @Query("DELETE FROM Article WHERE id IN (:news)")
-    suspend fun deleteNews(news: List<Int>)
+    @Query("DELETE FROM Article")
+    suspend fun deleteNews()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNews(news: List<Article>)

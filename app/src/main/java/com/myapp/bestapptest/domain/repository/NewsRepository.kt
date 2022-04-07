@@ -8,5 +8,9 @@ interface NewsRepository {
 
     fun getNews(): Flow<Resource<List<Article>>>
 
+    fun getSearchedNews(query: String): Flow<List<Article>>
+
+    fun getSavedNews(): Flow<List<Article>>
+
     suspend fun getNewsById(id: Int): Article
 }

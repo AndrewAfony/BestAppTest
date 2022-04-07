@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.myapp.bestapptest.R
 import com.myapp.bestapptest.databinding.NewsItemBinding
 import com.myapp.bestapptest.domain.model.Article
+import com.myapp.bestapptest.util.toDate
 
 class NewsAdapter(
     val onClick: (Int) -> Unit
@@ -38,9 +40,10 @@ class NewsAdapter(
         holder.binding.apply {
             title.text = article.title
             description.text = article.description
-            publishedAt.text = article.publishedAt
+            publishedAt.text = article.publishedAt.toDate()
             Glide.with(this.root)
                 .load(article.urlToImage)
+                .error(R.drawable.ic_error)
                 .into(image)
 
             this.root.setOnClickListener {

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.myapp.bestapptest.R
 import com.myapp.bestapptest.databinding.FragmentNewsDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +29,18 @@ class NewsDetailFragment : Fragment() {
         _binding = FragmentNewsDetailBinding.inflate(inflater, container, false)
 
         viewModel.getNewsById(args.newsId)
+
+        viewModel.currentArticle.observe(viewLifecycleOwner) {
+            binding.apply {
+                detailTitle.text = it.title
+                detailContent.text = it.content
+                detailPublishAt.text = it.publishedAt
+                Glide.with(requireActivity())
+                    .load(it.urlToImage)
+                    .into(detailImage)
+
+            }
+        }
 
         return binding.root
     }
