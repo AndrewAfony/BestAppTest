@@ -3,17 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/bg_edittext.xml" value="0.1565" />
+        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/bg_edittext_focused.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/divider.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/ic_close.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/ic_error.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/drawable/ic_news_report.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout-land/fragment_news.xml" value="0.22" />
-        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout-land/fragment_news_detail.xml" value="0.4125" />
+        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout-land/fragment_news_detail.xml" value="0.16666666666666666" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/activity_main.xml" value="0.1647887323943662" />
-        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/fragment_news.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/fragment_news.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/fragment_news_detail.xml" value="0.24925181701581872" />
-        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/news_item.xml" value="0.22" />
+        <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/layout/news_item.xml" value="0.3333333333333333" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1565" />
         <entry key="..\:/AndroidStudioProjects/BestAppTest/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1565" />
       </map>

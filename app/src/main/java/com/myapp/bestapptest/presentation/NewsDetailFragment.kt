@@ -1,15 +1,15 @@
 package com.myapp.bestapptest.presentation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.myapp.bestapptest.R
 import com.myapp.bestapptest.databinding.FragmentNewsDetailBinding
+import com.myapp.bestapptest.util.toDate
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +34,7 @@ class NewsDetailFragment : Fragment() {
             binding.apply {
                 detailTitle.text = it.title
                 detailContent.text = it.content
-                detailPublishAt.text = it.publishedAt
+                detailPublishAt.text = it.publishedAt.toDate()
                 Glide.with(requireActivity())
                     .load(it.urlToImage)
                     .into(detailImage)

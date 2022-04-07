@@ -8,7 +8,6 @@ import com.myapp.bestapptest.domain.repository.NewsRepository
 import com.myapp.bestapptest.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -17,16 +16,16 @@ import javax.inject.Inject
 @HiltViewModel
 class NewsViewModel @Inject constructor(
     private val repository: NewsRepository
-): ViewModel() {
+) : ViewModel() {
 
     var news = MutableStateFlow<List<Article>>(emptyList())
-    private set
+        private set
 
     var currentArticle = MutableLiveData<Article>()
-    private set
+        private set
 
     var eventFlow = MutableSharedFlow<String>()
-    private set
+        private set
 
     var showSplash = true
 
@@ -34,11 +33,11 @@ class NewsViewModel @Inject constructor(
         getNews()
     }
 
-    private fun getNews() {
+    fun getNews() {
         viewModelScope.launch {
             repository.getNews()
                 .onEach { result ->
-                    when(result) {
+                    when (result) {
                         is Resource.Success -> {
                             repository.getSavedNews()
                                 .collect {
@@ -50,6 +49,10 @@ class NewsViewModel @Inject constructor(
                         is Resource.Error -> {
                             showSplash = false
                             eventFlow.emit(result.message ?: "")
+                            repository.getSavedNews()
+                                .collect {
+                                    news.emit(it)
+                                }
                         }
                         is Resource.Loading -> {
                             showSplash = true
@@ -64,8 +67,8 @@ class NewsViewModel @Inject constructor(
             repository.getSearchedNews(query)
                 .flowOn(Dispatchers.IO)
                 .collectLatest {
-                news.emit(it)
-            }
+                    news.emit(it)
+                }
         }
     }
 

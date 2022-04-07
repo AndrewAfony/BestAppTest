@@ -6,7 +6,6 @@ import com.myapp.bestapptest.domain.model.Article
 import com.myapp.bestapptest.domain.repository.NewsRepository
 import com.myapp.bestapptest.util.Resource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
